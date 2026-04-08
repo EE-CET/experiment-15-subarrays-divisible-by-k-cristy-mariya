@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class SubarraysDivisibleByK {
+public class SubarraysDivByK {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -13,7 +13,7 @@ public class SubarraysDivisibleByK {
         }
 
         HashMap<Integer, Integer> remainderCount = new HashMap<>();
-        remainderCount.put(0, 1); // empty subarray has sum 0
+        remainderCount.put(0, 1);
 
         int count = 0;
         int prefixSum = 0;
@@ -21,7 +21,6 @@ public class SubarraysDivisibleByK {
         for (int i = 0; i < n; i++) {
             prefixSum += nums[i];
 
-            // Handle negative remainders
             int rem = ((prefixSum % k) + k) % k;
 
             if (remainderCount.containsKey(rem)) {
